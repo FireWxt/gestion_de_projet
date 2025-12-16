@@ -1,1 +1,9 @@
-<p>liste-projet works!</p>
+<h2>Liste des projets</h2>
+
+<ul>
+  <li *ngFor="let projet of projets">
+    <strong>{{ projet.nom }}</strong> — {{ projet.statut }}
+    |
+    <a [routerLink]="['/projet', projet.id]">Voir details</a>
+  </li>
+</ul>
