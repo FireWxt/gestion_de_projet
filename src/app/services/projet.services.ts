@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 export interface Projet {
   id: number;
@@ -11,30 +11,26 @@ export interface Projet {
 })
 export class ProjetService {
 
+  private projetsSignal = signal<Projet[]>([]);
 
-  private projets: Projet[] = [
-  ];
-
-  constructor() {}
-
-
-  getListeProjets(): Projet[] {
-    return this.projets;
+  getListeProjets() {
+    return this.projetsSignal;
   }
 
   getDetailProjet(id: number): Projet | undefined {
-    return this.projets.find(projet => projet.id === id);
+    return this.projetsSignal().find(p => p.id === id);
   }
 
   ajouterProjet(nom: string, statut: string): void {
+    const projets = this.projetsSignal();
     const nouveauProjet: Projet = {
-      id: this.projets.length > 0
-        ? Math.max(...this.projets.map(p => p.id)) + 1
+      id: projets.length > 0
+        ? Math.max(...projets.map(p => p.id)) + 1
         : 1,
       nom,
       statut
     };
 
-    this.projets.push(nouveauProjet);
+    this.projetsSignal.set([...projets, nouveauProjet]);
   }
 }
