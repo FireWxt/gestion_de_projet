@@ -1,1 +1,10 @@
-<p>detail-projet works!</p>
+<h2>Détail du projet</h2>
+
+<div *ngIf="projet; else notFound">
+  <p><strong>Nom :</strong> {{ projet.nom }}</p>
+  <p><strong>Statut :</strong> {{ projet.statut }}</p>
+</div>
+
+<ng-template #notFound>
+  <p style="color: red;">Erreur pas trouvé de projet</p>
+</ng-template>
