@@ -1,6 +1,7 @@
 <h2>Détail du projet</h2>
 
 <div *ngIf="projet; else notFound">
+  <p><strong>ID :</strong> {{ projet.id }}</p>
   <p><strong>Nom :</strong> {{ projet.nom }}</p>
   <p><strong>Statut :</strong> {{ projet.statut }}</p>
 </div>

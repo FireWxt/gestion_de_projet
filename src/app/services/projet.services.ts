@@ -13,8 +13,6 @@ export class ProjetService {
 
 
   private projets: Projet[] = [
-    { id: 1, nom: 'Projet Angular', statut: 'En cours' },
-    { id: 2, nom: 'Projet Java', statut: 'Terminé' }
   ];
 
   constructor() {}
