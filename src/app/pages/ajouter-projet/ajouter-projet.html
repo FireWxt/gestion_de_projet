@@ -1,1 +1,15 @@
-<p>ajouter-projet works!</p>
+<h2>Ajouter un projet</h2>
+
+<form (ngSubmit)="ajouterProjet()">
+  <div>
+    <label>Nom du projet :</label>
+    <input type="text" [(ngModel)]="nom" name="nom" required>
+  </div>
+
+  <div>
+    <label>Statut :</label>
+    <input type="text" [(ngModel)]="statut" name="statut" required>
+  </div>
+
+  <button type="submit">Ajouter</button>
+</form>
