@@ -1,5 +1,5 @@
 <h2>Liste des projets</h2>
-<p *ngIf="projets.length === 0" style="color: red;">Aucun projet disponible.</p>
+<p *ngIf="projets().length === 0" style="color: red;">Aucun projet disponible.</p>
 
 <ul>
   <li *ngFor="let projet of projets()">
